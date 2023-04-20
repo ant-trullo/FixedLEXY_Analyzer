@@ -32,9 +32,10 @@ for light_path in lights_path:
     bff        =  NucleiDetector.NucleiDetector(raw_data.dapi, raw_data.dorsal)
     light_info.append([light_path[light_path.rfind('/') + 1:], bff.nucs_ints, bff.bckg_ints])
 
-book      =  xlsxwriter.Workbook("/home/atrullo/Dropbox/Virginia_Anto/Dorsal LEXY/FOR_ANTO_FIXEDdl/Results.xlsx")
-sh_dark   =  book.add_worksheet("Dark")
-sh_light  =  book.add_worksheet("Light")
+file2write  =  QtWidgets.QFileDialog.getSaveFileName(None, "Define a file to store the results", '.xlsx')[0]
+book        =  xlsxwriter.Workbook(file2write)
+sh_dark     =  book.add_worksheet("Dark")
+sh_light    =  book.add_worksheet("Light")
 
 sh_dark.write(0, 0, "File Name")
 sh_dark.write(0, 1, "Internal Ints")
