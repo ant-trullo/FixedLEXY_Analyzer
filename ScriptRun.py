@@ -18,7 +18,7 @@ darks_path  =  QtWidgets.QFileDialog.getOpenFileNames(None, "Select raw data fil
 
 dark_info   =  []
 for dark_path in darks_path:
-    print("slkdfjlk")
+    print("dark")
     raw_data   =  RawDataLoader.RawDataLoader(dark_path)
     bff        =  NucleiDetector.NucleiDetector(raw_data.dapi, raw_data.dorsal)
     dark_info.append([dark_path[dark_path.rfind('/') + 1:], bff.nucs_ints, bff.bckg_ints])
@@ -27,7 +27,7 @@ for dark_path in darks_path:
 lights_path  =  QtWidgets.QFileDialog.getOpenFileNames(None, "Select raw data file to analyse...", filter="*.lsm *.czi *.tif *.lif")[0]
 light_info   =  []
 for light_path in lights_path:
-    print("slkdfjlk")
+    print("light")
     raw_data   =  RawDataLoader.RawDataLoader(light_path)
     bff        =  NucleiDetector.NucleiDetector(raw_data.dapi, raw_data.dorsal)
     light_info.append([light_path[light_path.rfind('/') + 1:], bff.nucs_ints, bff.bckg_ints])
